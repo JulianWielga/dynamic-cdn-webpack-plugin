@@ -8,9 +8,8 @@ import getResolver from './get-resolver';
 const pluginName = 'dynamic-cdn-webpack-plugin';
 let HtmlWebpackPlugin;
 try {
-    // eslint-disable-next-line import/no-extraneous-dependencies
     HtmlWebpackPlugin = require('html-webpack-plugin');
-} catch (err) {
+} catch (error) {
     HtmlWebpackPlugin = null;
 }
 
@@ -107,6 +106,7 @@ export default class DynamicCdnWebpackPlugin {
             if (this.verbose) {
                 console.log(`❌ '${modulePath}' couldn't be found, please add it to https://github.com/mastilver/module-to-cdn/blob/master/modules.json`);
             }
+
             return false;
         }
 
